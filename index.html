@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jannatullah M. Abdullah | Front-End Developer &amp; Instructor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --bg-color: #f8fafc;
+      --surface-color: #ffffff;
+      --text-color: #334155;
+      --primary-color: #6366f1;
+      --secondary-color: #94a3b8;
+    }
+    
+    * {
+      scroll-behavior: smooth;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.15);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -8px rgba(99, 102, 241, 0.4);
+    }
+    
+    .btn-secondary {
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .skill-tag {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .skill-tag:hover {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+      transform: scale(1.05);
+    }
+    
+    .section-fade {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+ </head>
+ <body class="h-full" style="background-color: var(--bg-color); color: var(--text-color);">
+  <div id="app-wrapper" class="w-full h-full overflow-auto" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+   <!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style="background: rgba(248, 250, 252, 0.9);">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+     <div class="flex justify-between items-center">
+      <a href="#home" class="text-xl font-bold" style="font-family: 'Space Grotesk', sans-serif;"> <span class="gradient-text">JMA</span> </a>
+      <div class="hidden md:flex items-center gap-8">
+       <a href="#about" class="nav-link text-sm font-medium" style="color: var(--text-color);">About</a> <a href="#skills" class="nav-link text-sm font-medium" style="color: var(--text-color);">Skills</a> <a href="#services" class="nav-link text-sm font-medium" style="color: var(--text-color);">Services</a> <a href="#projects" class="nav-link text-sm font-medium" style="color: var(--text-color);">Projects</a> <a href="#achievements" class="nav-link text-sm font-medium" style="color: var(--text-color);">Achievements</a> <a href="#education" class="nav-link text-sm font-medium" style="color: var(--text-color);">Education</a> <a href="#contact" class="btn-primary px-5 py-2 rounded-full text-white text-sm font-semibold">Contact</a>
+      </div><button id="mobile-menu-btn" class="md:hidden p-2">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+      <div class="flex flex-col gap-4">
+       <a href="#about" class="text-sm font-medium" style="color: var(--text-color);">About</a> <a href="#skills" class="text-sm font-medium" style="color: var(--text-color);">Skills</a> <a href="#services" class="text-sm font-medium" style="color: var(--text-color);">Services</a> <a href="#projects" class="text-sm font-medium" style="color: var(--text-color);">Projects</a> <a href="#achievements" class="text-sm font-medium" style="color: var(--text-color);">Achievements</a> <a href="#education" class="text-sm font-medium" style="color: var(--text-color);">Education</a> <a href="#contact" class="btn-primary px-5 py-2 rounded-full text-white text-sm font-semibold text-center">Contact</a>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+    <div class="max-w-6xl mx-auto w-full">
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="section-fade">
+       <p class="text-sm font-semibold tracking-wider uppercase mb-4" style="color: var(--primary-color);">Welcome to my portfolio</p>
+       <h1 id="hero-name" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif; color: var(--text-color);">Jannatullah M. Abdullah</h1>
+       <p id="hero-title" class="text-xl md:text-2xl font-medium mb-4 gradient-text">Android Mobile App <br> & Front-End Developer</p>
+       <p id="hero-tagline" class="text-lg mb-8" style="color: var(--secondary-color);">Turning complex problems into simple, practical software solutions.</p>
+       <div class="flex flex-wrap gap-4">
+        <a href="#contact" class="btn-primary px-8 py-3 rounded-full text-white font-semibold"> Hire Me → </a>
+       </div>
+       <div class="flex items-center gap-4 mt-8">
+        <span class="text-sm" style="color: var(--secondary-color);">📍 Mansoura, Egypt</span> <span class="w-1 h-1 rounded-full" style="background: var(--secondary-color);"></span> <span class="text-sm" style="color: var(--secondary-color);">Computer Engineering Student</span>
+       </div>
+      </div>
+      <div class="flex justify-center">
+       <div class="floating relative">
+        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+         <div class="w-56 h-56 md:w-72 md:h-72 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.3) 100%);">
+          <div class="text-8xl"> 
+           <img src="/picture.jpeg" alt="Profile Image" class="w-full h-full object-cover rounded-full">
+          </div>
+         </div>
+        </div><!-- Floating Elements -->
+        <div class="absolute -top-4 -right-4 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg" style="background: var(--surface-color);">
+         <span class="text-2xl">⚡</span>
+        </div>
+        <div class="absolute -bottom-4 -left-4 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg" style="background: var(--surface-color);">
+         <span class="text-2xl">🎯</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-semibold tracking-wider uppercase mb-2" style="color: var(--primary-color);">Get to know me</p>
+      <h2 class="text-3xl md:text-4xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">About Me</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+         <span class="text-2xl">🎓</span>
+        </div>
+        <h3 class="text-xl font-bold">My Journey</h3>
+       </div>
+       <p class="leading-relaxed" style="color: var(--secondary-color);">I'm a Computer Engineering student with hands-on experience in front-end development using HTML, CSS, and JavaScript, as well as C# application development. I've built practical projects including an online bookstore demo and a school website demo.</p>
+      </div>
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+         <span class="text-2xl">💡</span>
+        </div>
+        <h3 class="text-xl font-bold">My Approach</h3>
+       </div>
+       <p class="leading-relaxed" style="color: var(--secondary-color);">I have strong analytical and problem-solving skills with a keen interest in cybersecurity and digital system protection. I'm passionate about simplifying technical concepts and helping beginners learn through real projects instead of memorization.</p>
+      </div>
+     </div>
+     <div class="mt-12 text-center">
+      <div class="inline-flex items-center gap-8 flex-wrap justify-center rounded-2xl p-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.1) 100%);">
+       <div class="text-center">
+        <p class="text-3xl font-bold gradient-text">3+</p>
+        <p class="text-sm" style="color: var(--secondary-color);">Projects Built</p>
+       </div>
+       <div class="w-px h-12" style="background: var(--secondary-color); opacity: 0.3;"></div>
+       
+       
+       <div class="text-center">
+        <p class="text-3xl font-bold gradient-text">120+</p>
+        <p class="text-sm" style="color: var(--secondary-color);">Training Hours</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section id="skills" class="py-24 px-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(139, 92, 246, 0.06) 100%);">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-semibold tracking-wider uppercase mb-2" style="color: var(--primary-color);">What I can do</p>
+      <h2 class="text-3xl md:text-4xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">My Skills</h2>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <!-- Development Skills -->
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+        <span class="text-3xl">💻</span>
+       </div>
+       <h3 class="text-xl font-bold mb-4">Development</h3>
+       <div class="flex flex-wrap gap-2">
+        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Kotlin</span><span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Java</span><span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">HTML</span> <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">CSS</span> <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">JavaScript</span> <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">C#</span> <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Windows Forms</span>
+       </div>
+      </div><!-- Technical Skills -->
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+        <span class="text-3xl">🔧</span>
+       </div>
+       <h3 class="text-xl font-bold mb-4">Technical</h3>
+       <div class="flex flex-wrap gap-2">
+        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Arduino</span> <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Electronics</span> <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Cybersecurity</span>
+       </div>
+      </div><!-- Creative Skills -->
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+        <span class="text-3xl">🎨</span>
+       </div>
+       <h3 class="text-xl font-bold mb-4">Creative</h3>
+       <div class="flex flex-wrap gap-2">
+        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Presentations</span> <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Video Editing</span> <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium" style="color: var(--primary-color);">Teaching</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Services Section -->
+   <section id="services" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-semibold tracking-wider uppercase mb-2" style="color: var(--primary-color);">What I offer</p>
+      <h2 class="text-3xl md:text-4xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">My Services</h2>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <!-- Service 1 -->
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+        <span class="text-3xl">🌐</span>
+       </div>
+       <h3 id="service-one" class="text-xl font-bold mb-4">Web Development</h3>
+       <p style="color: var(--secondary-color);">Custom websites and web applications built with modern technologies. From responsive design to interactive features, I create digital experiences that engage users.</p>
+      </div><!-- Service 2 -->
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+        <span class="text-3xl">📚</span>
+       </div>
+       <h3 id="service-two" class="text-xl font-bold mb-4">Teaching &amp; Training</h3>
+       <p style="color: var(--secondary-color);">Comprehensive coding courses for beginners. I focus on practical projects and real-world skills rather than theory alone, making learning engaging and effective.</p>
+      </div><!-- Service 3 -->
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">
+        <span class="text-3xl">📱</span>
+       </div>
+       <h3 id="service-three" class="text-xl font-bold mb-4">Android Mobile App Development</h3>
+       <p style="color: var(--secondary-color);">I design and develop user-friendly Android applications that run smoothly on smartphones and tablets. My apps focus on functionality, usability, and clean design to provide the best user experience.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Projects Section -->
+   <section id="projects" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-semibold tracking-wider uppercase mb-2" style="color: var(--primary-color);">My work</p>
+      <h2 class="text-3xl md:text-4xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">Featured Projects</h2>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project 1 -->
+      <div class="card-hover rounded-3xl overflow-hidden shadow-lg" style="background: var(--surface-color);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
+        <span class="text-6xl">📚</span>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3">
+         <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: rgba(99, 102, 241, 0.1); color: var(--primary-color);">Front-End</span> <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: rgba(99, 102, 241, 0.1); color: var(--primary-color);">C#</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Online Bookstore Demo</h3>
+        <p class="text-sm mb-4" style="color: var(--secondary-color);">A comprehensive bookstore application featuring both a web interface and desktop application for managing books and orders.</p>
+        <div class="flex items-center gap-2">
+         <span class="text-sm font-medium" style="color: var(--primary-color);">View Details →</span>
+        </div>
+       </div>
+      </div><!-- Project 2 -->
+      <div class="card-hover rounded-3xl overflow-hidden shadow-lg" style="background: var(--surface-color);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+        <span class="text-6xl">🏫</span>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3">
+         <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: rgba(99, 102, 241, 0.1); color: var(--primary-color);">Front-End</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">School Website Demo</h3>
+        <p class="text-sm mb-4" style="color: var(--secondary-color);">A modern, responsive school website with clean design, featuring pages for information, events, and contact.</p>
+        <div class="flex items-center gap-2">
+         <span class="text-sm font-medium" style="color: var(--primary-color);">View Details →</span>
+        </div>
+       </div>
+      </div><!-- Project 3 -->
+      <div class="card-hover rounded-3xl overflow-hidden shadow-lg" style="background: var(--surface-color);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+        <span class="text-6xl">🏠</span>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3">
+         <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: rgba(99, 102, 241, 0.1); color: var(--primary-color);">Arduino</span> <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: rgba(99, 102, 241, 0.1); color: var(--primary-color);">IoT</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Smart Home Prototype</h3>
+        <p class="text-sm mb-4" style="color: var(--secondary-color);">An Arduino-based smart home system with automated lighting, temperature control, and security features.</p>
+        <div class="flex items-center gap-2">
+         <span class="text-sm font-medium" style="color: var(--primary-color);">View Details →</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Achievements Section -->
+   <section id="achievements" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-semibold tracking-wider uppercase mb-2" style="color: var(--primary-color);">Milestones</p>
+      <h2 class="text-3xl md:text-4xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">Achievements</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
+         <span class="text-lg font-bold text-white">✓</span>
+        </div>
+        <div>
+         <h3 id="achievement-one" class="text-lg font-bold mb-2">Developed several academic and personal software projects</h3>
+         <p style="color: var(--secondary-color);">Created dashboards, Android applications, and C# desktop systems that solve real problems and demonstrate practical coding expertise.</p>
+        </div>
+       </div>
+      </div>
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
+         <span class="text-lg font-bold text-white">✓</span>
+        </div>
+        <div>
+         <h3 id="achievement-two" class="text-lg font-bold mb-2">Applied programming and problem-solving skills through coursework</h3>
+         <p style="color: var(--secondary-color);">Mastered advanced topics including Data Structures and Artificial Intelligence through rigorous university coursework.</p>
+        </div>
+       </div>
+      </div>
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+         <span class="text-lg font-bold text-white">✓</span>
+        </div>
+        <div>
+         <h3 id="achievement-three" class="text-lg font-bold mb-2">Built practical applications focused on usability and efficiency</h3>
+         <p style="color: var(--secondary-color);">Designed functional software with clear data presentation and intuitive interfaces that prioritize user experience.</p>
+        </div>
+       </div>
+      </div>
+      <div class="card-hover rounded-3xl p-8 shadow-lg" style="background: var(--surface-color);">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+         <span class="text-lg font-bold text-white">✓</span>
+        </div>
+        <div>
+         <h3 id="achievement-four" class="text-lg font-bold mb-2">Collaborated with team members on technical projects</h3>
+         <p style="color: var(--secondary-color);">Worked effectively in teams to design and implement functional software solutions with clear communication and shared goals.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Education & Certifications -->
+   <section id="education" class="py-24 px-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(139, 92, 246, 0.06) 100%);">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-semibold tracking-wider uppercase mb-2" style="color: var(--primary-color);">My background</p>
+      <h2 class="text-3xl md:text-4xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">Education &amp; Certifications</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-12">
+      <!-- Education -->
+      <div>
+       <h3 class="text-xl font-bold mb-6 flex items-center gap-3"><span class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">🎓</span> Education</h3>
+       <div class="card-hover rounded-2xl p-6 shadow-lg" style="background: var(--surface-color);">
+        <div class="flex items-start gap-4">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
+          <span class="text-white text-xl">🏛️</span>
+         </div>
+         <div>
+          <h4 class="font-bold text-lg">BSc in Computer Engineering</h4>
+          <p class="text-sm mb-2" style="color: var(--primary-color);">New Mansoura University</p>
+          <p class="text-sm" style="color: var(--secondary-color);">Expected Graduation: 2029</p>
+          <p class="text-sm" style="color: var(--secondary-color);">Completed Level 1 • GPA: 3.5/4</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Certifications -->
+      <div>
+       <h3 class="text-xl font-bold mb-6 flex items-center gap-3"><span class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);">📜</span> Certifications</h3>
+       <div class="space-y-4">
+        <div class="card-hover rounded-2xl p-5 shadow-lg" style="background: var(--surface-color);">
+         <div class="flex items-center gap-3">
+          <span class="text-2xl">💼</span>
+          <div>
+           <h4 class="font-semibold">LinkedIn Learning</h4>
+           <p class="text-xs" style="color: var(--secondary-color);">HTML, CSS, JS, C#, Java, Python, Full Stack</p>
+          </div>
+         </div>
+        </div>
+        <div class="card-hover rounded-2xl p-5 shadow-lg" style="background: var(--surface-color);">
+         <div class="flex items-center gap-3">
+          <span class="text-2xl">🌐</span>
+          <div>
+           <h4 class="font-semibold">Mahara-Tech</h4>
+           <p class="text-xs" style="color: var(--secondary-color);">Database Fundamentals, Embedded C</p>
+          </div>
+         </div>
+        </div>
+        <div class="card-hover rounded-2xl p-5 shadow-lg" style="background: var(--surface-color);">
+         <div class="flex items-center gap-3">
+          <span class="text-2xl">🔒</span>
+          <div>
+           <h4 class="font-semibold">NTI Cybersecurity Training</h4>
+           <p class="text-xs" style="color: var(--secondary-color);">120 hours intensive program</p>
+          </div>
+         </div>
+        </div>
+        <div class="card-hover rounded-2xl p-5 shadow-lg" style="background: var(--surface-color);">
+         <div class="flex items-center gap-3">
+          <span class="text-2xl">🚀</span>
+          <div>
+           <h4 class="font-semibold">Creativa Innovation Hub (ITIDA)</h4>
+           <p class="text-xs" style="color: var(--secondary-color);">Full Stack Development Training</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-24 px-6" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(139, 92, 246, 0.06) 100%);">
+    <div class="max-w-4xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-semibold tracking-wider uppercase mb-2" style="color: var(--primary-color);">Get in touch</p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">Let's Work Together</h2>
+      <p style="color: var(--secondary-color);">Have a project in mind or want to learn front-end development? I'd love to hear from you!</p>
+     </div>
+     <div class="card-hover rounded-3xl p-8 md:p-12 shadow-xl" style="background: var(--surface-color);">
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+       <!-- Email --> <a id="contact-email-link" href="mailto:jannah.m.abdallah@hotmail.com" class="flex flex-col items-center text-center p-6 rounded-2xl transition-all hover:scale-105" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.1) 100%);">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
+         <span class="text-2xl">✉️</span>
+        </div><h4 class="font-bold mb-1">Email</h4><p id="contact-email-text" class="text-sm" style="color: var(--secondary-color);">jannah.m.abdallah@hotmail.com</p></a> <!-- LinkedIn --> <a id="contact-linkedin-link" href="https://www.linkedin.com/in/jannatullah-m-abdullah" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center p-6 rounded-2xl transition-all hover:scale-105" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.1) 100%);">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);">
+         <span class="text-2xl">💼</span>
+        </div><h4 class="font-bold mb-1">LinkedIn</h4><p id="contact-linkedin-text" class="text-sm" style="color: var(--secondary-color);">Connect with me</p></a> <!-- WhatsApp --> <a id="contact-whatsapp-link" href="https://wa.me/201024037717" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center p-6 rounded-2xl transition-all hover:scale-105" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.1) 100%);">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);">
+         <span class="text-2xl">💬</span>
+        </div><h4 class="font-bold mb-1">WhatsApp</h4><p id="contact-whatsapp-text" class="text-sm" style="color: var(--secondary-color);">+201024037717</p></a>
+      </div>
+      <div class="text-center">
+       <p class="text-lg font-medium mb-6">Ready to start your front-end journey?</p><a href="mailto:jannah.m.abdallah@hotmail.com" class="btn-primary px-8 py-3 rounded-full text-white font-semibold"> Send Message → </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-8 px-6 text-center" style="background: var(--surface-color); border-top: 1px solid rgba(99, 102, 241, 0.1);">
+    <p class="text-sm" style="color: var(--secondary-color);">© 2024 <span id="footer-name">Jannatullah M. Abdullah</span>. Built with 💜 for beginners who dream big.</p>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      hero_name: 'Jannatullah M. Abdullah',
+      hero_title: 'Front-End Developer & Instructor',
+      hero_tagline: 'Building clean interfaces. Teaching with clarity.',
+      service_one: 'Web Development',
+      service_two: 'Teaching & Training',
+      service_three: 'Cybersecurity Consulting',
+      achievement_one: 'Developed several academic and personal software projects',
+      achievement_two: 'Applied programming and problem-solving skills through coursework',
+      achievement_three: 'Built practical applications focused on usability and efficiency',
+      achievement_four: 'Collaborated with team members on technical projects',
+      contact_email: 'jannah.m.abdallah@hotmail.com',
+      contact_linkedin: 'https://www.linkedin.com/in/jannatullah-m-abdullah',
+      contact_whatsapp: '+201024037717',
+      background_color: '#f8fafc',
+      surface_color: '#ffffff',
+      text_color: '#334155',
+      primary_color: '#6366f1',
+      secondary_color: '#94a3b8',
+      font_family: 'Plus Jakarta Sans',
+      font_size: 16
+    };
+
+    // Initialize Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          // Update hero section
+          document.getElementById('hero-name').textContent = config.hero_name || defaultConfig.hero_name;
+          document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+          document.getElementById('hero-tagline').textContent = config.hero_tagline || defaultConfig.hero_tagline;
+          document.getElementById('footer-name').textContent = config.hero_name || defaultConfig.hero_name;
+          
+          // Update services section
+          document.getElementById('service-one').textContent = config.service_one || defaultConfig.service_one;
+          document.getElementById('service-two').textContent = config.service_two || defaultConfig.service_two;
+          document.getElementById('service-three').textContent = config.service_three || defaultConfig.service_three;
+          
+          // Update achievements section
+          document.getElementById('achievement-one').textContent = config.achievement_one || defaultConfig.achievement_one;
+          document.getElementById('achievement-two').textContent = config.achievement_two || defaultConfig.achievement_two;
+          document.getElementById('achievement-three').textContent = config.achievement_three || defaultConfig.achievement_three;
+          document.getElementById('achievement-four').textContent = config.achievement_four || defaultConfig.achievement_four;
+          
+          // Update contact section
+          const email = config.contact_email || defaultConfig.contact_email;
+          const linkedin = config.contact_linkedin || defaultConfig.contact_linkedin;
+          const whatsapp = config.contact_whatsapp || defaultConfig.contact_whatsapp;
+          
+          document.getElementById('contact-email-text').textContent = email;
+          document.getElementById('contact-email-link').href = `mailto:${email}`;
+          
+          document.getElementById('contact-linkedin-text').textContent = 'Connect with me';
+          document.getElementById('contact-linkedin-link').href = linkedin;
+          
+          document.getElementById('contact-whatsapp-text').textContent = whatsapp;
+          const whatsappNumber = whatsapp.replace(/[^0-9]/g, '');
+          document.getElementById('contact-whatsapp-link').href = `https://wa.me/${whatsappNumber}`;
+          
+          // Update colors
+          const root = document.documentElement;
+          root.style.setProperty('--bg-color', config.background_color || defaultConfig.background_color);
+          root.style.setProperty('--surface-color', config.surface_color || defaultConfig.surface_color);
+          root.style.setProperty('--text-color', config.text_color || defaultConfig.text_color);
+          root.style.setProperty('--primary-color', config.primary_color || defaultConfig.primary_color);
+          root.style.setProperty('--secondary-color', config.secondary_color || defaultConfig.secondary_color);
+          
+          // Update font
+          const customFont = config.font_family || defaultConfig.font_family;
+          const baseFontStack = 'sans-serif';
+          document.getElementById('app-wrapper').style.fontFamily = `${customFont}, ${baseFontStack}`;
+          
+          // Update font size
+          const baseSize = config.font_size || defaultConfig.font_size;
+          document.documentElement.style.fontSize = `${baseSize}px`;
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => {
+                config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_color || defaultConfig.secondary_color,
+              set: (value) => {
+                config.secondary_color = value;
+                window.elementSdk.setConfig({ secondary_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['hero_name', config.hero_name || defaultConfig.hero_name],
+          ['hero_title', config.hero_title || defaultConfig.hero_title],
+          ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
+          ['service_one', config.service_one || defaultConfig.service_one],
+          ['service_two', config.service_two || defaultConfig.service_two],
+          ['service_three', config.service_three || defaultConfig.service_three],
+          ['achievement_one', config.achievement_one || defaultConfig.achievement_one],
+          ['achievement_two', config.achievement_two || defaultConfig.achievement_two],
+          ['achievement_three', config.achievement_three || defaultConfig.achievement_three],
+          ['achievement_four', config.achievement_four || defaultConfig.achievement_four],
+          ['contact_email', config.contact_email || defaultConfig.contact_email],
+          ['contact_linkedin', config.contact_linkedin || defaultConfig.contact_linkedin],
+          ['contact_whatsapp', config.contact_whatsapp || defaultConfig.contact_whatsapp]
+        ])
+      });
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d9a664f94b02c49',t:'MTc3MzA2MjY2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
